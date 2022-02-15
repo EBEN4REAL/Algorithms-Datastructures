@@ -12,7 +12,7 @@ const checkOccurence = (arr1, arr2) => {
     return bool
 }
 
-console.log(checkOccurence([1, 2, 3], [4, 9]))
+// console.log(checkOccurence([1, 2, 3], [4, 9]))
 
 /*** using Frequency counter algorithm***/
 const reFactoredcheckOccurence = (arr1, arr2) => {
@@ -34,7 +34,7 @@ const reFactoredcheckOccurence = (arr1, arr2) => {
     return true
 }
 
-console.log(reFactoredcheckOccurence([1, 2, 3], [4, 9, 1]))
+// console.log(reFactoredcheckOccurence([1, 2, 3], [4, 9, 1]))
 
 function validAnagram(str1, str2) {
   if(arr1.length !== arr2.length)  return false
@@ -54,4 +54,29 @@ function validAnagram(str1, str2) {
   }
   return true
 }
+
+function sameFrequency(num1, num2){
+    let numA = String(num1)
+    let numB = String(num2)
+
+    if (numA.length !== numB.length) {
+        return false
+    }
+    let obj1 = {}
+    let obj2 = {}
+    
+    for(let char of numA) {
+       obj1[char] =  obj1[char] + 1 || 1
+    }
+    for(let char of numB) {
+        obj2[char] =  obj2[char] + 1 || 1
+    }
+    for(let char in obj1) {
+        if(!(char in  obj2) &&  obj1[char] !==  obj2[char]) {
+            return false
+        }
+    }
+    return true
+}
+console.log(sameFrequency(123, 123))
 
