@@ -56,27 +56,43 @@ function validAnagram(str1, str2) {
 }
 
 function sameFrequency(num1, num2){
-    let numA = String(num1)
-    let numB = String(num2)
-
-    if (numA.length !== numB.length) {
+  const numStr1 = String(num1)
+  const numStr2 = String(num2)
+  
+  let obj1 = {}
+  let obj2 = {}
+  
+  for(let char of numStr1) {
+      obj1[char] = obj1[char] + 1 || 1
+  }
+  
+  for(let char of numStr2) {
+      obj2[char] = obj2[char] + 1 || 1
+  } 
+ for(let char in obj1) {
+     if(obj1[char] !== obj2[char]) {
         return false
+     }
+ }
+ return true
+}
+
+
+// console.log(sameFrequency(123, 123))
+
+/*** Duplicate Arguments ***/
+function areThereDuplicates() {
+    let counterObj = {}
+    for(let [_, arg] of Object.entries(arguments)) {
+        counterObj[arg] = counterObj[arg] + 1 || 1
     }
-    let obj1 = {}
-    let obj2 = {}
-    
-    for(let char of numA) {
-       obj1[char] =  obj1[char] + 1 || 1
-    }
-    for(let char of numB) {
-        obj2[char] =  obj2[char] + 1 || 1
-    }
-    for(let char in obj1) {
-        if(!(char in  obj2) &&  obj1[char] !==  obj2[char]) {
-            return false
+    for(let char  in counterObj) {
+        if(counterObj[char] > 1) {
+            return true
         }
     }
-    return true
+    return false
 }
-console.log(sameFrequency(123, 123))
+
+console.log(areThereDuplicates(1,2,3,3,4,5))
 

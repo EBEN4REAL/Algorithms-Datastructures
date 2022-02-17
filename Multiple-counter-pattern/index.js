@@ -13,7 +13,7 @@ function sumZero(arr) {
     }
 }
 
-console.log(sumZero([-4, -3, -2, -1, 0, 1, 2, 3, 10]))
+// console.log(sumZero([-4, -3, -2, -1, 0, 1, 2, 3, 10]))
 
 /*** Count  unique values***/
 function countUniqueValues(arr){
@@ -27,4 +27,21 @@ function countUniqueValues(arr){
     
     return i + 1
 }
-console.log(countUniqueValues([1, 1, 1, 2, 3, 3, 3, 5]))
+// console.log(countUniqueValues([1, 1, 1, 2, 3, 3, 3, 5]))
+
+/*** Duplicate Arguments ***/
+function areThereDuplicates() {
+    let p1 = 0
+    let sortedValues = Object.values(arguments).sort()
+
+    for (let p2 = 1; p2 < sortedValues.length; p2++) {
+        if (sortedValues[p1] === sortedValues[p2]) {
+            return true
+        } else {
+            p1++
+        }
+    }
+    return false
+}
+
+console.log(areThereDuplicates(1,2,3,3,4,5))
