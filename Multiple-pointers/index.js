@@ -44,4 +44,21 @@ function areThereDuplicates() {
     return false
 }
 
-console.log(areThereDuplicates(1,2,3,3,4,5))
+// console.log(areThereDuplicates(1,2,3,3,4,5))
+
+function averagePair(arr, avg){
+    if(!arr.length) return false
+    let p2 = arr.length - 1
+    let p1 = 0
+    while(p1 < p2) {
+        if(((arr[p1] + arr[p2]) / 2) === avg ) {
+            return true
+        }else if(((arr[p1] + arr[p2]) / 2) > avg) {
+            p2--
+        }else {
+            p1++
+        }
+    }
+    return false
+}
+// console.log(averagePair([1,3,3,5,6,7,10,12,19], 8))
