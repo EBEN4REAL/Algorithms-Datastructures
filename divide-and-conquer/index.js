@@ -1,10 +1,10 @@
 
-const getIndex = (arr, num) => {
+function binarySearch(arr, num){
     let p1 = 0
     let p2 = arr.length - 1
-
-    while (p1 < p2) {
-        let mid = Math.floor((p1 + p2) / 2)
+    let mid = Math.floor((p1 + p2) / 2)
+    
+    while (p1 <= p2) {
         if(arr[mid] === num) {
             return mid
         }
@@ -13,6 +13,7 @@ const getIndex = (arr, num) => {
         }else if(arr[mid] < num) {
             p1 = mid + 1
         }
+        mid = Math.floor((p1 + p2) / 2) 
     }
     return -1
 }
