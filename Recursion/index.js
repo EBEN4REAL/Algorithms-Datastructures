@@ -193,8 +193,7 @@ function stringifyNumbers(obj) {
       if(typeof obj[key] === 'number') {
         newObj[key] = obj[key].toString()
       }else if(typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
-        let newObj2 = stringifyNumbers(obj[key])
-        newObj[key] = newObj2
+        newObj[key] = stringifyNumbers(obj[key])
       }else {
         newObj[key] = obj[key]
       }
